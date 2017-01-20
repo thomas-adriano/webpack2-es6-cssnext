@@ -1,0 +1,2 @@
+- Add production optimizations (css/js minification, image compression);
+- use "resemble image" maybe?

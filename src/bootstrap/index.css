@@ -1,5 +1,6 @@
 :root {
     --font-color: #333332;
+    --border-color: #C9C9C9;
     --main-background-color: #F5F7F3;
 }
 
@@ -7,10 +8,16 @@ html,
 body {
     color: var(--font-color);
     background-color: var(--main-background-color);
-    font-family: 'Nunito Sans', sans-serif;
+    box-sizing: border-box;
 }
 
-:local(.class_test) {
+*, *:before, *:after {
+    box-sizing: inherit;
+    color: var(--font-color);
+    border-color: var(--border-color);
+}
+
+.class_test {
     background-color: red;
     padding: 3rem;
 }
