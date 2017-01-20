@@ -1,6 +1,5 @@
 {
   "plugins": {
-    "postcss-cssnext": {},
-    "postcss-modules": {}
+    "postcss-cssnext": {}
   }
 }

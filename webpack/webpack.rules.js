@@ -1,9 +1,9 @@
 module.exports = [{
         test: /\.css$/,
         use: [
-            "style-loader",
-            // "file-loader",
-            // "extract-loader",
+            // "style-loader",
+            "file-loader",
+            "extract-loader",
             {
                 loader: 'css-loader',
                 options: {

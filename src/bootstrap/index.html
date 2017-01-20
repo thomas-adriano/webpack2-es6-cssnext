@@ -21,7 +21,7 @@
         <![endif]-->
     <h1>webpack2-es6-cssnext</h1>
     <p><strong>Hello!</strong> This is a skeleton project containing the minimum setup for a project managed with Webpack 2 and support for ES2015 (es6) and CSSNext.</p>
-    <div class="${require('./index.css').class_test}">
+    <div class="${require('style-loader!./index.css').class_test}">
         DADADA
     </div>
 </body>

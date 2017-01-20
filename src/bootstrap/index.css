@@ -10,7 +10,7 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.class_test {
+:local(.class_test) {
     background-color: red;
     padding: 3rem;
 }
