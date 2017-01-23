@@ -9,7 +9,8 @@
         "last 3 versions"
     ],
     "scripts": {
-        "build": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-prod.config.js",
+        "build": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-dev.config.js",
+        "dist": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-prod.config.js",
         "serve": "yarn run build && http-server ./build",
         "live": "webpack-dev-server --colors --progress --hot --inline --host 0.0.0.0 --config webpack/webpack-dev.config.js"
     },
@@ -24,6 +25,7 @@
         "file-loader": "^0.9.0",
         "html-loader": "^0.4.4",
         "html-webpack-plugin": "^2.26.0",
+        "image-webpack-loader": "^3.1.0",
         "normalize.css": "^5.0.0",
         "postcss-cssnext": "^2.9.0",
         "postcss-loader": "^1.2.2",

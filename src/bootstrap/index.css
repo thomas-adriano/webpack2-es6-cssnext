@@ -17,7 +17,15 @@ body {
     border-color: var(--border-color);
 }
 
-.class_test {
-    background-color: red;
-    padding: 3rem;
+.logos .logo-img + .logo-img {
+    margin-left: 1.5rem;
+}
+
+.logo-img {
+    width: 15rem;
+}
+
+.project-description {
+    font-size: 2rem;
+    padding: 0 2rem;
 }

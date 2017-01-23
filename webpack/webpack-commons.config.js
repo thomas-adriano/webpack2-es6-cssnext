@@ -1,18 +1,18 @@
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const rootFolder = path.resolve(__dirname, '..');
 
-const rules = require('./webpack.rules.js');
-const plugins = require('./webpack.plugins.js');
+const rootFolder = path.resolve(__dirname, '..');
 
 module.exports = {
     context: rootFolder,
-    entry: ['./src/bootstrap/index.js', ],
+    entry: ['./src/bootstrap/index.js',],
     output: {
         filename: '[hash].js',
         path: path.resolve('./build'),
     },
     module: {
-        rules
+        rules: rules()
     },
     resolve: {
         modules: [
@@ -20,5 +20,73 @@ module.exports = {
             path.resolve('./src')
         ]
     },
-    plugins
+    plugins: plugins()
 };
+
+function rules() {
+    return [{
+        test: /\.css$/,
+        use: [
+            "file-loader",
+            "extract-loader",
+            {
+                loader: 'css-loader',
+                options: {
+                    importLoaders: 1,
+                }
+            },
+            'postcss-loader'
+        ]
+    },
+    {
+        test: /\.(woff|woff2|eot|ttf)$/, use: 'url-loader'
+    },
+    {
+        test: /\.(gif|png|jpe?g|svg)$/, use: [
+            {
+                loader: 'url-loader',
+                options: { limit: '2000' }
+            },
+            {
+                loader: 'image-webpack-loader',
+                query: {
+                    progressive: true,
+                    optimizationLevel: 7,
+                    interlaced: false,
+                    pngquant: {
+                        quality: '65-90',
+                        speed: 4
+                    },
+                    mozjpeg: {
+                        quality: 65
+                    }
+                }
+            }
+        ]
+    },
+    {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: 'babel-loader',
+    },
+    {
+        test: /\.html$/,
+        use: [{
+            loader: 'html-loader',
+            options: {
+                interpolate: true,
+                attrs: ['link:href', 'img:src']
+            }
+        },]
+    }
+    ];
+}
+
+function plugins() {
+    return [
+        new HtmlWebpackPlugin({
+            template: 'src/bootstrap/index.html',
+            hash: true
+        }),
+    ];
+}

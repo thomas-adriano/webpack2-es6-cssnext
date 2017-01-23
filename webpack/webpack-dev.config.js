@@ -1,5 +1,5 @@
-const configs = {
+const configs = require('./webpack-commons.config.js');
 
-}
+configs.devtool = 'inline-source-map';
 
-module.exports = Object.assign(configs, require('./webpack-commons.config.js'));
+module.exports = configs;
