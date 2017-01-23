@@ -52,13 +52,16 @@ function rules() {
                 query: {
                     progressive: true,
                     optimizationLevel: 7,
-                    interlaced: false,
+                    interlaced: true,
                     pngquant: {
                         quality: '65-90',
                         speed: 4
                     },
                     mozjpeg: {
                         quality: 65
+                    },
+                    gifsicle: {
+                        optimizationLevel: 2
                     }
                 }
             }
