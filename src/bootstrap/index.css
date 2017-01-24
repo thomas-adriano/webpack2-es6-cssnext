@@ -1,28 +1,30 @@
 :root {
-    --font-color: #333332;
     --border-color: #C9C9C9;
+    --font-color: #333332;
     --main-background-color: #F5F7F3;
 }
 
-html,
-body {
-    color: var(--font-color);
+html, body {
     background-color: var(--main-background-color);
     box-sizing: border-box;
+    color: var(--font-color);
 }
 
-*, *:before, *:after {
+
+/* stylelint-disable selector-no-universal*/
+/* global resets */
+*, *::before, *::after {
+    border-color: var(--border-color);
     box-sizing: inherit;
     color: var(--font-color);
-    border-color: var(--border-color);
-}
-
-.logos .logo-img + .logo-img {
-    margin-left: 1.5rem;
 }
 
 .logo-img {
     width: 15rem;
+}
+
+.logos.logo-img+.logo-img {
+    margin-left: 1.5rem;
 }
 
 .project-description {
