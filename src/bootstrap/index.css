@@ -12,11 +12,18 @@ html, body {
 
 
 /* stylelint-disable selector-no-universal*/
+
+
 /* global resets */
+
 *, *::before, *::after {
     border-color: var(--border-color);
     box-sizing: inherit;
     color: var(--font-color);
+}
+
+.logos {
+    text-align: center;
 }
 
 .logo-img {
@@ -24,10 +31,15 @@ html, body {
 }
 
 .logos.logo-img+.logo-img {
-    margin-left: 1.5rem;
+    margin-left: 2rem;
 }
 
 .project-description {
     font-size: 2rem;
     padding: 0 2rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 5rem 0;
 }
