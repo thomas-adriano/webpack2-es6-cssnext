@@ -19,6 +19,10 @@ html, body {
     color: var(--font-color);
 }
 
+.logos {
+    text-align: center;
+}
+
 .logo-img {
     width: 15rem;
 }
@@ -30,4 +34,9 @@ html, body {
 .project-description {
     font-size: 2rem;
     padding: 0 2rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 5rem 0;
 }

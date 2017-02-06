@@ -1,5 +1,6 @@
 {
     "unused": "vars",    //report all variables only (ignores function parameters not used)
     "browser": true,     // Web Browser (window, document, etc),
-    "quotmark": "single" // Quotation mark consistency
+    "quotmark": "single", // Quotation mark consistency
+    "esversion": 6
 }
