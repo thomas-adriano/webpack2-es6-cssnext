@@ -13,6 +13,9 @@
         "serve": "yarn run build && http-server ./build",
         "live": "webpack-dev-server --colors --progress --hot --inline --host 0.0.0.0"
     },
+    "browserslist": [
+        "last 3 versions"
+    ],
     "dependencies": {
         "font-awesome": "^4.7.0"
     },
