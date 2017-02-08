@@ -14,9 +14,14 @@ configs.plugins = configs.plugins.concat([
         },
         sourceMap: true,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: "vendor",
+    }),
     new webpack.LoaderOptionsPlugin({
         minimize: true,
     }),
 ]);
+
+// configs.entry.unshift('vendor.js');
 
 module.exports = configs;

@@ -6,9 +6,9 @@ const rootFolder = path.resolve(__dirname, '..');
 
 module.exports = {
     context: rootFolder,
-    entry: ['./src/bootstrap/index.js',],
+    entry: './src/bootstrap/index.js',
     output: {
-        filename: '[hash].js',
+        filename: '[chunkhash].js',
         path: path.resolve('./build'),
     },
     module: {

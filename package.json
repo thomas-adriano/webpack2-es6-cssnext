@@ -5,20 +5,18 @@
     "main": "src/index.js",
     "author": "thomas.o.adriano@gmail.com",
     "license": "MIT",
-    "browser": [
-        "last 3 versions"
-    ],
     "scripts": {
         "build": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-dev.config.js",
         "dist": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-prod.config.js",
-        "serve": "yarn run build && http-server ./build",
+        "serve": "yarn run dist && http-server ./build",
         "live": "webpack-dev-server --colors --progress --hot --inline --host 0.0.0.0 --config webpack/webpack-dev.config.js"
     },
     "browserslist": [
         "last 3 versions"
     ],
     "dependencies": {
-        "font-awesome": "^4.7.0"
+        "font-awesome": "^4.7.0",
+        "jquery": "^3.1.1"
     },
     "devDependencies": {
         "autoprefixer": "^6.6.1",
