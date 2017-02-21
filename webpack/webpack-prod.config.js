@@ -22,6 +22,4 @@ configs.plugins = configs.plugins.concat([
     }),
 ]);
 
-// configs.entry.unshift('vendor.js');
-
 module.exports = configs;
