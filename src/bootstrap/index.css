@@ -43,21 +43,3 @@ html, body {
     text-align: center;
     padding: 5rem 0;
 }
-
-.btn {
-    background-color: #FFF;
-    border: 1px solid color(#000 a(20%));
-    border-radius: 3px;
-    padding: 1rem;
-    cursor: pointer;
-    transition: .1s ease background-color;
-}
-
-.btn:active {
-    background-color: color(#000 a(20%));
-    transition: .1s ease background-color;
-}
-
-.btn-container {
-    text-align: center;
-}
