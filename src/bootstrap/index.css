@@ -61,3 +61,16 @@ html, body {
 .btn-container {
     text-align: center;
 }
+
+.animals-section {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3rem 5rem;
+}
+
+.animals-section > * + * {
+    margin: 1rem 0 0 1rem;
+}

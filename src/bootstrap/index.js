@@ -1,9 +1,10 @@
 import $ from 'jquery';
-import cats from 'cats';
 
 console.log($('body').html);
 console.log('HHHEEELLLOOO!!!!');
 
-document.getElementById("cats-btn").addEventListener("click", (evt) => {
-    cats(evt);
+let btn = document.getElementById('cats-btn');
+btn.addEventListener('click', (evt) => {
+    btn.innerHTML = '<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>';
+    System.import('cats').then(module => module.default());
 });

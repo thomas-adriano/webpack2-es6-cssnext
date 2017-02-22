@@ -8,7 +8,7 @@ module.exports = {
     context: rootFolder,
     entry: './src/bootstrap/index.js',
     output: {
-        filename: '[chunkhash].js',
+        filename: '[hash].js',
         path: path.resolve('./build'),
     },
     module: {
@@ -68,15 +68,15 @@ function rules() {
             test: /\.(gif|png|jpe?g|svg)$/, use: [
                 {
                     loader: 'url-loader',
-                    options: { limit: '2000' }
+                    options: { limit: '2000000' }
                 },
                 {
                     loader: 'image-webpack-loader',
                     query: {
                         progressive: true,
-                        optimizationLevel: 7,
-                        interlaced: true,
                         pngquant: {
+                            optimizationLevel: 7,
+                            interlaced: true,
                             quality: '65-90',
                             speed: 4
                         },
@@ -84,6 +84,8 @@ function rules() {
                             quality: 65
                         },
                         gifsicle: {
+                            optimizationLevel: 7,
+                            interlaced: true,
                             optimizationLevel: 2
                         }
                     }
