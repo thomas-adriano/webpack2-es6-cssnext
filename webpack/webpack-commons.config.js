@@ -1,14 +1,18 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 
 const rootFolder = path.resolve(__dirname, '..');
 
 module.exports = {
     context: rootFolder,
-    entry: './src/bootstrap/index.js',
+    entry: {
+        vendor: ['jquery'],
+        main: './src/bootstrap/index.js',
+    },
     output: {
-        filename: '[hash].js',
+        filename: '[name]-[hash].js',
         path: path.resolve('./build'),
     },
     module: {
@@ -35,31 +39,30 @@ function rules() {
         {
             test: /\.css$/,
             include: /node_modules/,
-            use: [
-                "file-loader",
-                "extract-loader",
-                {
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: {
                     loader: 'css-loader',
                     options: {
                         importLoaders: 1,
                     }
-                },
-            ]
+                }
+            }),
         },
         {
             test: /\.css$/,
             exclude: /node_modules/,
-            use: [
-                "file-loader",
-                "extract-loader",
-                {
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [{
                     loader: 'css-loader',
                     options: {
                         importLoaders: 1,
                     }
                 },
-                'postcss-loader'
-            ],
+                    'postcss-loader'
+                ],
+            }),
         },
         {
             test: /\.(woff|woff2|eot|ttf)$/, use: 'url-loader'
@@ -103,7 +106,7 @@ function rules() {
                 loader: 'html-loader',
                 options: {
                     interpolate: true,
-                    attrs: ['link:href', 'img:src']
+                    attrs: ['img:src']
                 }
             },]
         }
@@ -116,5 +119,6 @@ function plugins() {
             template: 'src/bootstrap/index.html',
             hash: true
         }),
+        new ExtractTextPlugin("[contenthash].css"),
     ];
 }
