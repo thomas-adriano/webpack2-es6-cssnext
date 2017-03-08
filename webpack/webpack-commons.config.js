@@ -7,7 +7,10 @@ const rootFolder = path.resolve(__dirname, '..');
 
 module.exports = {
     context: rootFolder,
-    entry: './src/bootstrap/index.js',
+    entry: {
+        vendor: ['jquery'],
+        main: './src/bootstrap/index.js',
+    },
     output: {
         filename: '[name]-[hash].js',
         path: path.resolve('./build'),
