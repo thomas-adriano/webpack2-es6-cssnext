@@ -8,7 +8,7 @@ const rootFolder = path.resolve(__dirname, '..');
 module.exports = {
     context: rootFolder,
     entry: {
-        vendor: ['jquery'],
+        vendor: ['jquery', 'bootstrap/thirdparty.js'],
         main: './src/bootstrap/index.js',
     },
     output: {
@@ -39,30 +39,26 @@ function rules() {
         {
             test: /\.css$/,
             include: /node_modules/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: {
+            use: ['style-loader',
+                {
                     loader: 'css-loader',
                     options: {
                         importLoaders: 1,
                     }
-                }
-            }),
+                }],
         },
         {
             test: /\.css$/,
             exclude: /node_modules/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [{
+            use: ['style-loader',
+                {
                     loader: 'css-loader',
                     options: {
                         importLoaders: 1,
                     }
                 },
-                    'postcss-loader'
-                ],
-            }),
+                'postcss-loader'
+            ],
         },
         {
             test: /\.(woff|woff2|eot|ttf)$/, use: 'url-loader'
@@ -99,16 +95,6 @@ function rules() {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
             use: ['babel-loader'],
-        },
-        {
-            test: /\.html$/,
-            use: [{
-                loader: 'html-loader',
-                options: {
-                    interpolate: true,
-                    attrs: ['img:src']
-                }
-            },]
         }
     ];
 }
