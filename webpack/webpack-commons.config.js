@@ -95,6 +95,15 @@ function rules() {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
             use: ['babel-loader'],
+        },
+        {
+            test: /\.html$/,
+            use: [{
+                loader: 'html-loader',
+                options: {
+                    minimize: true
+                }
+            }]
         }
     ];
 }
